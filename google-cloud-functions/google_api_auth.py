@@ -49,9 +49,9 @@ class GoogleAuth:
         datetime_object = datetime.strptime(ctime(ts), "%a %b %d %H:%M:%S %Y")
         return datetime_object.timestamp()
 
-    def generate_token(self, REFRESH_TOKEN_FLAG):
+    def generate_token(self, refresh_token_flag):
         try:
-            token_resp = acquire_token(self, REFRESH_TOKEN_FLAG)
+            token_resp = acquire_token(self, refresh_token_flag)
             ts_now = time()
             token_resp['expiresOn'] = (ts_now + token_resp['expires_in']) if token_resp.get("expires_in") else None
             token_resp['accessToken'] = token_resp.get("access_token")
@@ -91,7 +91,7 @@ class GoogleAuth:
             raise ConnectorError("{0}".format(str(err)))
 
 
-def acquire_token(self, REFRESH_TOKEN_FLAG):
+def acquire_token(self, refresh_token_flag):
     try:
         headers = {
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -103,7 +103,7 @@ def acquire_token(self, REFRESH_TOKEN_FLAG):
             'grant_type': 'authorization_code'
         }
 
-        if not REFRESH_TOKEN_FLAG:
+        if not refresh_token_flag:
             data["code"] = self.code
         else:
             data["grant_type"] = REFRESH_TOKEN,
