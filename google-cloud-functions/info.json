@@ -1,0 +1,397 @@
+{
+  "name": "google-cloud-functions",
+  "label": "Google Cloud Functions",
+  "version": "1.0.0",
+  "description": "Google Cloud Functions is a serverless execution environment for building and connecting cloud services.",
+  "publisher": "Fortinet",
+  "cs_approved": false,
+  "cs_compatible": true,
+  "category": "Utilities",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "help_online": "",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "type": "text",
+        "name": "server",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "description": "The service-based URI to which you will connect and perform the automated operations.",
+        "tooltip": "The service-based URI to which you will connect and perform the automated operations.",
+        "value": "https://cloudfunctions.googleapis.com"
+      },
+      {
+        "title": "Client ID",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "client_id",
+        "description": "Unique Client ID of the Google Cloud Functions that is used to create an authentication token required to access the Google Cloud Functions API.",
+        "tooltip": "Unique Client ID of the Google Cloud Functions that is used to create an authentication token required to access the Google Cloud Functions API."
+      },
+      {
+        "title": "Client Secret",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "password",
+        "name": "client_secret",
+        "description": "Unique Client Secret of the Google Cloud Functions that is used to create an authentication token required to access the API. For information on how to get the client secret, see https://developers.google.com/identity/protocols/oauth2/web-server.",
+        "tooltip": "Unique Client Secret of the Google Cloud Functions that is used to create an authentication token required to access the API."
+      },
+      {
+        "title": "Authorization Code",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "password",
+        "name": "code",
+        "tooltip": "The authorization code that you acquired during the authorization step. For more information, see the Accessing the Google Cloud Functions API section.",
+        "description": "The authorization code that you acquired during the authorization step. For more information, see the Accessing the Google Cloud Functions API section."
+      },
+      {
+        "title": "Redirect URL",
+        "description": "The redirect_uri of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect_uri's you registered in the app registration portal.",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "redirect_url",
+        "placeholder": "E.g. https://localhost/myapp",
+        "tooltip": "The redirect_uri of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect_uri's you registered in the app registration portal."
+      },
+      {
+        "title": "Verify SSL",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "type": "checkbox",
+        "name": "verify_ssl",
+        "value": true,
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True.",
+        "tooltip": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True."
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "get_locations_list",
+      "title": "Get Locations List",
+      "description": "Retrieves a list of information about the supported locations for this service from Google Cloud Functions based on the project name and other input parameters you have specified.",
+      "category": "investigation",
+      "annotation": "get_locations_list",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Project Name",
+          "name": "project_name",
+          "description": "Specify the name of the project based on which you want to retrieve locations from Google Cloud Functions.",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "tooltip": "Specify the name of the project based on which you want to retrieve locations from Google Cloud Functions."
+        },
+        {
+          "title": "Filter",
+          "name": "filter",
+          "description": "Specify the filter using values of certain attributes, for example, displayName=tokyo, based on which you want to filter the locations retrieved from Google Cloud Functions.",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "tooltip": "Specify the filter using values of certain attributes, for example, displayName=tokyo, based on which you want to filter the locations retrieved from Google Cloud Functions.",
+          "placeholder": "e.g. displayName=tokyo"
+        },
+        {
+          "title": "PageSize",
+          "name": "pageSize",
+          "description": "Specify the maximum number of results to return. If not set, the service selects a default.",
+          "type": "integer",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "tooltip": "Specify the maximum number of results to return. If not set, the service selects a default."
+        },
+        {
+          "title": "PageToken",
+          "description": "Specify a PageToken if a previous operation returned a partial result. If the previous response contains a nextPageToken element, the value of the nextPageToken element includes a PageToken parameter that specifies a starting point to use for subsequent calls.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "pageToken",
+          "tooltip": "Specify a PageToken if a previous operation returned a partial result. If the previous response contains a nextPageToken element, the value of the nextPageToken element includes a PageToken parameter that specifies a starting point to use for subsequent calls."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "get_functions_list",
+      "title": "Get Functions List",
+      "description": "Retrieves a list of functions that belong to the requested project from Google Calendar based on the project name, location, and other input parameters you have specified.",
+      "category": "investigation",
+      "annotation": "get_functions_list",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Project Name",
+          "name": "project_name",
+          "description": "Specify the name of the project based on which you want to retrieve functions from Google Cloud Functions.",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "tooltip": "Specify the name of the project based on which you want to retrieve functions from Google Cloud Functions."
+        },
+        {
+          "title": "Location",
+          "name": "location_name",
+          "description": "Specify the location based on which you want to retrieve functions from Google Cloud Functions.",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "tooltip": "Specify the location based on which you want to retrieve functions from Google Cloud Functions."
+        },
+        {
+          "title": "Filter",
+          "name": "filter",
+          "description": "Specify the filter using values of certain attributes, for example, displayName=tokyo, based on which you want to filter the locations retrieved from Google Cloud Functions.",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "tooltip": "Specify the filter using values of certain attributes, for example, displayName=tokyo, based on which you want to filter the locations retrieved from Google Cloud Functions.",
+          "placeholder": "e.g. displayName=tokyo"
+        },
+        {
+          "title": "Order By",
+          "name": "orderBy",
+          "description": "Specify the comma separated list of fields. The default sorting oder is ascending.",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "tooltip": "Specify the comma separated list of fields. The default sorting oder is ascending.",
+          "placeholder": "e.g. foo desc, bar"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "get_function_details",
+      "title": "Get Function Details",
+      "description": "Retrieves an specific function information from Google Cloud Functions based on the project name, location name, and function name you have specified.",
+      "category": "investigation",
+      "annotation": "get_function_details",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Project Name",
+          "name": "project_name",
+          "description": "Specify the name of the project based on which you want to retrieve specific function details from Google Cloud Functions.",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "tooltip": "Specify the name of the project based on which you want to retrieve specific function details from Google Cloud Functions."
+        },
+        {
+          "title": "Location",
+          "name": "location_name",
+          "description": "Specify the location based on which you want to retrieve specific function details from Google Cloud Functions.",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "tooltip": "Specify the location based on which you want to retrieve specific function details from Google Cloud Functions."
+        },
+        {
+          "title": "Function Name",
+          "name": "function_name",
+          "description": "Specify the name of the function based on which you want to retrieve specific function details from Google Cloud Functions.",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "tooltip": "Specify the name of the function based on which you want to retrieve specific function details from Google Cloud Functions."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "get_access_control_policy",
+      "title": "Get Access Control Policy",
+      "description": "Retrieves the access control policy for a resource from Google Cloud Functions, it returns an empty policy if the resource exists and does not have a policy set.",
+      "category": "investigation",
+      "annotation": "get_access_control_policy",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Project Name",
+          "name": "project_name",
+          "description": "Specify the name of the project based on which you want to retrieve access control policy from Google Cloud Functions.",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "tooltip": "Specify the name of the project based on which you want to retrieve access control policy from Google Cloud Functions."
+        },
+        {
+          "title": "Location",
+          "name": "location_name",
+          "description": "Specify the location based on which you want to retrieve access control policy from Google Cloud Functions.",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "tooltip": "Specify the location based on which you want to retrieve access control policy from Google Cloud Functions."
+        },
+        {
+          "title": "Function Name",
+          "name": "function_name",
+          "description": "Specify the name of the function based on which you want to retrieve access control policy from Google Cloud Functions.",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "tooltip": "Specify the name of the function based on which you want to retrieve access control policy from Google Cloud Functions."
+        },
+        {
+          "title": "Policy Version",
+          "name": "requestedPolicyVersion",
+          "description": "Specify the maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3.",
+          "type": "integer",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "tooltip": "Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "set_access_control_policy",
+      "title": "Set Access Control Policy",
+      "description": "Sets the access control policy on the specified resource. Replaces any existing policy.",
+      "category": "investigation",
+      "annotation": "set_access_control_policy",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Project Name",
+          "name": "project_name",
+          "description": "Specify the name of the project based on which you want to set the access control policy in Google Cloud Functions.",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "tooltip": "Specify the name of the project based on which you want to set the access control policy in Google Cloud Functions."
+        },
+        {
+          "title": "Location",
+          "name": "location_name",
+          "description": "Specify the location based on which you want to set the access control policy in Google Cloud Functions.",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "tooltip": "Specify the location based on which you want to set the access control policy in Google Cloud Functions."
+        },
+        {
+          "title": "Function Name",
+          "name": "function_name",
+          "description": "Specify the name of the function based on which you want to set the access control policy in Google Cloud Functions.",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "tooltip": "Specify the name of the function based on which you want to set the access control policy in Google Cloud Functions."
+        },
+        {
+          "title": "Audit Configs",
+          "name": "auditConfigs",
+          "description": "Specifies the audit configuration for a service, configuration determines which permission types are logged, and what identities, if any, are exempted from logging. An AuditConfig must have one or more AuditLogConfigs.",
+          "type": "json",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "tooltip": "Specifies the audit configuration for a service, configuration determines which permission types are logged, and what identities, if any, are exempted from logging. An AuditConfig must have one or more AuditLogConfigs.",
+          "value": [
+            {
+              "service": "allServices",
+              "auditLogConfigs": [
+                {
+                  "logType": "DATA_READ",
+                  "exemptedMembers": [
+                    "user:jose@example.com"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bindings",
+          "name": "bindings",
+          "description": "A binding binds one or more members, or principals, to a single role. Principals can be user accounts, service accounts, Google groups, and domains (such as G Suite). A role is a named list of permissions; each role can be an IAM predefined role or a user-created custom role.",
+          "type": "json",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "tooltip": "A binding binds one or more members, or principals, to a single role. Principals can be user accounts, service accounts, Google groups, and domains (such as G Suite). A role is a named list of permissions; each role can be an IAM predefined role or a user-created custom role.",
+          "value": [
+            {
+              "role": "roles/resourcemanager.organizationViewer",
+              "members": [
+                "user:eve@example.com"
+              ],
+              "condition": {
+                "title": "expirable access",
+                "description": "Does not grant access after Sep 2020",
+                "expression": "request.time < timestamp('2024-01-01T00:00:00.000Z')"
+              }
+            }
+          ]
+        },
+        {
+          "title": "Etag",
+          "name": "etag",
+          "description": "Specify the etag based on which you want to set the access control policy in Google Cloud Functions.",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "tooltip": "Important: If you use IAM Conditions, you must include the etag field whenever you call setIamPolicy. If you omit this field, then IAM allows you to overwrite a version 3 policy with a version 1 policy, and all of the conditions in the version 3 policy are lost."
+        },
+        {
+          "title": "Policy Version",
+          "name": "version",
+          "description": "Specify the maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3.",
+          "type": "integer",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "tooltip": "Important: If you use IAM Conditions, you must include the etag field whenever you call setIamPolicy. If you omit this field, then IAM allows you to overwrite a version 3 policy with a version 1 policy, and all of the conditions in the version 3 policy are lost."
+        },
+        {
+          "title": "Update Mask",
+          "name": "updateMask",
+          "description": "Specify the comma-separated list of fully qualified names of fields.",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "tooltip": "A FieldMask specifying which fields of the policy to modify. Only the fields in the mask will be modified. If no mask is provided, the following default mask is used: paths: \"bindings, etag\".",
+          "placeholder": "e.g. user.displayName,photo"
+        }
+      ],
+      "output_schema": {}
+    }
+  ]
+}

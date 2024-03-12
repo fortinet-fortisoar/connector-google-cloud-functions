@@ -1,0 +1,410 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "uuid": "204347d3-4401-4954-ac53-38291a4a4152",
+      "@type": "WorkflowCollection",
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "uuid": "a5986b1f-fce8-4fda-a5c6-708204ed356c",
+          "collection": "/api/3/workflow_collections/204347d3-4401-4954-ac53-38291a4a4152",
+          "steps": [
+            {
+              "uuid": "6cfea44f-dfac-4336-afd4-ac407bee6d2f",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "ebe37a71-5b6e-45c3-9da0-5e3f7e06cc81",
+              "@type": "WorkflowStep",
+              "name": "Get Locations List",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Google Cloud Functions",
+                "config": "",
+                "params": {
+                  "project_name": "",
+                  "filter": "",
+                  "pageSize": "",
+                  "pageToken": ""
+                },
+                "version": "1.0.0",
+                "connector": "google-cloud-functions",
+                "operation": "get_locations_list",
+                "operationTitle": "Get Locations List"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieves a list of information about the supported locations for this service from Google Cloud Functions based on the project name and other input parameters you have specified.",
+          "name": "Get Locations List",
+          "tag": "#Google Cloud Functions",
+          "recordTags": [
+            "Google",
+            "google-cloud-functions"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/6cfea44f-dfac-4336-afd4-ac407bee6d2f",
+          "routes": [
+            {
+              "uuid": "1e17eeff-08da-4ae2-9a1b-572b026c08f9",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Locations List",
+              "sourceStep": "/api/3/workflow_steps/6cfea44f-dfac-4336-afd4-ac407bee6d2f",
+              "targetStep": "/api/3/workflow_steps/ebe37a71-5b6e-45c3-9da0-5e3f7e06cc81"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "8427c20c-b736-4b9d-b5f6-6645609f638b",
+          "collection": "/api/3/workflow_collections/204347d3-4401-4954-ac53-38291a4a4152",
+          "steps": [
+            {
+              "uuid": "fb2fe3be-85a9-46b0-8f2b-1271b7c1d917",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "4aed3b3d-6324-4279-bfc2-c35c13452ece",
+              "@type": "WorkflowStep",
+              "name": "Get Functions List",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Google Cloud Functions",
+                "config": "",
+                "params": {
+                  "project_name": "",
+                  "location_name": "",
+                  "filter": "",
+                  "orderBy": ""
+                },
+                "version": "1.0.0",
+                "connector": "google-cloud-functions",
+                "operation": "get_functions_list",
+                "operationTitle": "Get Functions List"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieves a list of functions that belong to the requested project from Google Calendar based on the project name, location, and other input parameters you have specified.",
+          "name": "Get Functions List",
+          "tag": "#Google Cloud Functions",
+          "recordTags": [
+            "Google",
+            "google-cloud-functions"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/fb2fe3be-85a9-46b0-8f2b-1271b7c1d917",
+          "routes": [
+            {
+              "uuid": "db72de92-7390-44a6-963a-de916cb57426",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Functions List",
+              "sourceStep": "/api/3/workflow_steps/fb2fe3be-85a9-46b0-8f2b-1271b7c1d917",
+              "targetStep": "/api/3/workflow_steps/4aed3b3d-6324-4279-bfc2-c35c13452ece"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "e9b986d7-edc0-48e1-9912-e2d2385aa8bb",
+          "collection": "/api/3/workflow_collections/204347d3-4401-4954-ac53-38291a4a4152",
+          "steps": [
+            {
+              "uuid": "fb4096f4-8c1b-4a8b-881e-197d575aaa40",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "8e2a471a-ca48-4200-918a-2c07529ca853",
+              "@type": "WorkflowStep",
+              "name": "Get Function Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Google Cloud Functions",
+                "config": "",
+                "params": {
+                  "project_name": "",
+                  "location_name": "",
+                  "function_name": ""
+                },
+                "version": "1.0.0",
+                "connector": "google-cloud-functions",
+                "operation": "get_function_details",
+                "operationTitle": "Get Function Details"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieves an specific function information from Google Cloud Functions based on the project name, location name, and function name you have specified.",
+          "name": "Get Function Details",
+          "tag": "#Google Cloud Functions",
+          "recordTags": [
+            "Google",
+            "google-cloud-functions"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/fb4096f4-8c1b-4a8b-881e-197d575aaa40",
+          "routes": [
+            {
+              "uuid": "3cc2ebb1-b7f2-447e-a411-e1b337f2dd90",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Function Details",
+              "sourceStep": "/api/3/workflow_steps/fb4096f4-8c1b-4a8b-881e-197d575aaa40",
+              "targetStep": "/api/3/workflow_steps/8e2a471a-ca48-4200-918a-2c07529ca853"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "29d57200-be14-48a5-8b02-397b4c82d78e",
+          "collection": "/api/3/workflow_collections/204347d3-4401-4954-ac53-38291a4a4152",
+          "steps": [
+            {
+              "uuid": "39f1757b-d3b1-4d38-a1da-eaec45dfb1fa",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "36a26c7b-114e-41f5-9e2d-7f314890260c",
+              "@type": "WorkflowStep",
+              "name": "Get Access Control Policy",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Google Cloud Functions",
+                "config": "",
+                "params": {
+                  "project_name": "",
+                  "location_name": "",
+                  "function_name": "",
+                  "requestedPolicyVersion": ""
+                },
+                "version": "1.0.0",
+                "connector": "google-cloud-functions",
+                "operation": "get_access_control_policy",
+                "operationTitle": "Get Access Control Policy"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieves the access control policy for a resource from Google Cloud Functions, it returns an empty policy if the resource exists and does not have a policy set.",
+          "name": "Get Access Control Policy",
+          "tag": "#Google Cloud Functions",
+          "recordTags": [
+            "Google",
+            "google-cloud-functions"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/39f1757b-d3b1-4d38-a1da-eaec45dfb1fa",
+          "routes": [
+            {
+              "uuid": "4e171631-858e-4808-91d3-542db5b1c162",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Access Control Policy",
+              "sourceStep": "/api/3/workflow_steps/39f1757b-d3b1-4d38-a1da-eaec45dfb1fa",
+              "targetStep": "/api/3/workflow_steps/36a26c7b-114e-41f5-9e2d-7f314890260c"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "c303ef91-eb5f-469d-a225-631b93f6ac90",
+          "collection": "/api/3/workflow_collections/204347d3-4401-4954-ac53-38291a4a4152",
+          "steps": [
+            {
+              "uuid": "89e4634f-de84-4214-8609-00643b477492",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "24d88ebf-931a-490e-822c-b6538ebbd2de",
+              "@type": "WorkflowStep",
+              "name": "Set Access Control Policy",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Google Cloud Functions",
+                "config": "",
+                "params": {
+                  "project_name": "",
+                  "location_name": "",
+                  "function_name": "",
+                  "auditConfigs": [
+                    {
+                      "service": "allServices",
+                      "auditLogConfigs": [
+                        {
+                          "logType": "DATA_READ",
+                          "exemptedMembers": [
+                            "user:jose@example.com"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "bindings": [
+                    {
+                      "role": "roles/resourcemanager.organizationViewer",
+                      "members": [
+                        "user:eve@example.com"
+                      ],
+                      "condition": {
+                        "title": "expirable access",
+                        "description": "Does not grant access after Sep 2020",
+                        "expression": "request.time < timestamp('2024-01-01T00:00:00.000Z')"
+                      }
+                    }
+                  ],
+                  "etag": "",
+                  "version": "",
+                  "updateMask": ""
+                },
+                "version": "1.0.0",
+                "connector": "google-cloud-functions",
+                "operation": "set_access_control_policy",
+                "operationTitle": "Set Access Control Policy"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Sets the access control policy on the specified resource. Replaces any existing policy.",
+          "name": "Set Access Control Policy",
+          "tag": "#Google Cloud Functions",
+          "recordTags": [
+            "Google",
+            "google-cloud-functions"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/89e4634f-de84-4214-8609-00643b477492",
+          "routes": [
+            {
+              "uuid": "ccce664b-00cb-43cf-b587-e02de4a6071f",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Set Access Control Policy",
+              "sourceStep": "/api/3/workflow_steps/89e4634f-de84-4214-8609-00643b477492",
+              "targetStep": "/api/3/workflow_steps/24d88ebf-931a-490e-822c-b6538ebbd2de"
+            }
+          ]
+        }
+      ],
+      "name": "Sample - Google Cloud Functions - 1.0.0",
+      "description": "Google Cloud Functions is a serverless execution environment for building and connecting cloud services.",
+      "visible": true,
+      "recordTags": [
+        "Google",
+        "google-cloud-functions"
+      ]
+    }
+  ]
+}
